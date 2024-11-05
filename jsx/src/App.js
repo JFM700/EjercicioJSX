@@ -1,18 +1,24 @@
-import React from 'react';
-import Saludo from './Saludo';
-import Despedida from './Despedida';
+import React, { useState } from 'react';
 
-function App() {
 
-  const mostrarSaludo = true;
-  const nombre = 'Jesús';
+function Contador() {  
+  const [numero, setNumero] = useState(0);
+
+    const incrementar = () => {
+    setNumero(numero + 1);
+  };
+
+    const decrementar = () => {
+    setNumero(numero - 1);
+  };
 
   return (
-  <div>
-    {mostrarSaludo ? <Saludo nombre={nombre} /> : <Despedida nombre={nombre} />}
-  </div>  
-  )
-
+    <div>
+      <h1>{numero}</h1>
+      <button onClick={incrementar}>Incrementar</button>
+      <button onClick={decrementar}>Decrementar</button>
+    </div>
+  );
 }
 
-export default App;
+export default Contador;
